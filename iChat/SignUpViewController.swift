@@ -46,6 +46,9 @@ class SignUpViewController: UIViewController {
             
             if let user = user {
                 self.setUserName(user: user, name: name)
+                
+                // Save to Users in Firebase database
+                DataService.sharedInstance.saveUser(uid: user.uid, email: email)
             }
         }
     }

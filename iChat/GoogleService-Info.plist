@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>1055984348870-0kq2ku7k9rcac13gigu2u4ehshm0echv.apps.googleusercontent.com</string>
+	<string>186514035156-g7k8ofsiv3cisa2jp3ls0msr5plfv8m3.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1055984348870-0kq2ku7k9rcac13gigu2u4ehshm0echv</string>
+	<string>com.googleusercontent.apps.186514035156-g7k8ofsiv3cisa2jp3ls0msr5plfv8m3</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBzS3dxUHZV3uHIGI_aEfd5Kzol1dtYC6I</string>
+	<string>AIzaSyBBJamBKiDZ3HHnuoGepMqpNj7qPIU5cRg</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1055984348870</string>
+	<string>186514035156</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>ninja.pragprog.careerfoundry.iChat</string>
+	<string>ninja.pragprog.careerfoundry.iChat-Exercise</string>
 	<key>PROJECT_ID</key>
-	<string>ichat-1a924</string>
+	<string>ichat-exercise</string>
 	<key>STORAGE_BUCKET</key>
-	<string>ichat-1a924.appspot.com</string>
+	<string>ichat-exercise.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1055984348870:ios:62d9d9d790817815</string>
+	<string>1:186514035156:ios:abf1b9b3b131bcbb</string>
 	<key>DATABASE_URL</key>
-	<string>https://ichat-1a924.firebaseio.com</string>
+	<string>https://ichat-exercise.firebaseio.com</string>
 </dict>
 </plist>
