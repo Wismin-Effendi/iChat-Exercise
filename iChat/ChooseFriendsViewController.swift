@@ -27,34 +27,23 @@ class ChooseFriendsViewController: UITableViewController {
         DataService.sharedInstance.usersRef
             .observe(.childAdded, with: {[unowned self] (snapshot) in
                 
-                if let chatUser = self.createChatUser(from: snapshot) {
-                    self.chatUsers.append(chatUser)
+                if let chatUser = ChatUser.create(from: snapshot),
+                    self.userId != chatUser.uid {
+                        print(chatUser)
+                        self.chatUsers.append(chatUser)
+                        self.tableView.insertRows(at: [IndexPath(row: self.chatUsers.count - 1, section:0)], with: .fade)
                 }
-                
-                DataService.sharedInstance.usersRef.child(self.userId).child(DataService.FIR_CHILD.FRIENDS)
-                    .observe(.childAdded, with: {[unowned self] (snapshot2) in
-                        
-                        if let chatUser = self.createChatUser(from: snapshot2) {
-                            self.selectedChatUsers.append(chatUser)
-                        }
-                    })
-                self.tableView.reloadData()
             })
 
-    }
-
-    private func createChatUser(from snapshot: DataSnapshot) -> ChatUser? {
-        let uid = snapshot.key
-        guard self.userId != uid else {
-            // skip if it's same user
-            return nil
-        }
-        if let value = snapshot.value as? [String:AnyObject],
-            let email = value["email"] as? String {
-            let chatUser = ChatUser(uid: uid, email: email)
-            return chatUser
-        }
-        return nil
+        
+        DataService.sharedInstance.usersRef.child(self.userId).child(DataService.FIR_CHILD.FRIENDS)
+            .observe(.childAdded, with: {[unowned self] (snapshot2) in
+                
+                if let chatUser = ChatUser.create(from: snapshot2) {
+                    self.selectedChatUsers.append(chatUser)
+                }
+                self.tableView.reloadData()
+            })
     }
 
     @IBAction func chatTapped(_ sender: UIBarButtonItem) {

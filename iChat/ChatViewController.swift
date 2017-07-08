@@ -17,6 +17,8 @@ class ChatViewController: JSQMessagesViewController {
     var incomingMessageBubbleImage: JSQMessagesBubbleImage!
     var ref: DatabaseReference!
     private var databaseHandle: DatabaseHandle!
+    
+    var friendsUID = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,7 @@ class ChatViewController: JSQMessagesViewController {
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
         setupMessageBubbles()
+        getListOfFriendsUID()
         
         ref = Database.database().reference()
     }
@@ -40,8 +43,11 @@ class ChatViewController: JSQMessagesViewController {
                 let text = value["text"] as! String
                 let name = value["senderDisplayName"] as! String
                 
-                self.addMessage(id: id, text: text, name: name)
-                self.finishReceivingMessage()
+                // only include message send from our friends list and our own messages
+                if self.friendsUID.contains(id) || self.senderId == id {
+                    self.addMessage(id: id, text: text, name: name)
+                    self.finishReceivingMessage()
+                }
             }
         })
     }
@@ -75,8 +81,23 @@ class ChatViewController: JSQMessagesViewController {
             print("Error signing out: \(signOutError)")
         }
     }
+    
+    
+    // MARK: Added for Task in Exercise 4.8 
+    
+    private func getListOfFriendsUID() {
+        DataService.sharedInstance.usersRef.child(senderId).child(DataService.FIR_CHILD.FRIENDS)
+            .observe(.childAdded, with: {[unowned self] (snapshot) in
+        
+                if let chatUser = ChatUser.create(from: snapshot) {
+                    self.friendsUID.append(chatUser.uid)
+                }
+            })
+    }
+    
+    
 
-    // MARK: Helper 
+    // MARK: Helper
     
     private func setupMessageBubbles() {
         let factory = JSQMessagesBubbleImageFactory()
