@@ -18,8 +18,6 @@ class ChatViewController: JSQMessagesViewController {
     var ref: DatabaseReference!
     private var databaseHandle: DatabaseHandle!
     
-    var friendsUID = [String]()
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
