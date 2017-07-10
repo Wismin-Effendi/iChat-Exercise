@@ -31,26 +31,13 @@ class SignUpViewController: UIViewController {
                 return
         }
         
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            if let error = error {
-                if error._code == AuthErrorCode.invalidEmail.rawValue {
-                    self.showAlert(message: "Enter a valid email.")
-                } else if error._code == AuthErrorCode.emailAlreadyInUse.rawValue {
-                    self.showAlert(message: "Email already in use.")
-                } else {
-                    self.showAlert(message: "Error: \(error.localizedDescription)")
-                }
-                print(error.localizedDescription)
-                return
-            }
-            
-            if let user = user {
-                self.setUserName(user: user, name: name)
-                
-                // Save to Users in Firebase database
-                DataService.sharedInstance.saveUser(uid: user.uid, email: email)
-            }
+        func setUser(user: User) {
+            self.setUserName(user: user, name: name)
+            // Save to Users in Firebase database
+            DataService.sharedInstance.saveUser(uid: user.uid, email: email)
         }
+        
+        AuthService.sharedInstance.signUp(withEmail: email, password: password, sender: self, callback: setUser)
     }
 
     func setUserName(user: User, name: String) {

@@ -14,6 +14,7 @@
 		379B26AC1F10964600C431B6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B26AB1F10964600C431B6 /* Constants.swift */; };
 		379B26AF1F1099DD00C431B6 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B26AE1F1099DD00C431B6 /* UserCell.swift */; };
 		379B26B41F13C5FC00C431B6 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B26B31F13C5FC00C431B6 /* StartViewController.swift */; };
+		379B26B61F13F01200C431B6 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B26B51F13F01200C431B6 /* AuthService.swift */; };
 		37CD0AE91F0E66050038B95D /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD0AE81F0E66050038B95D /* AuthenticationManager.swift */; };
 		37CD0AEB1F0E69C30038B95D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD0AEA1F0E69C30038B95D /* Extensions.swift */; };
 		54DA72E71DB6CAEE00AAC9EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DA72E61DB6CAEE00AAC9EA /* AppDelegate.swift */; };
@@ -35,6 +36,7 @@
 		379B26AB1F10964600C431B6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		379B26AE1F1099DD00C431B6 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		379B26B31F13C5FC00C431B6 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		379B26B51F13F01200C431B6 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		37CD0AE81F0E66050038B95D /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		37CD0AEA1F0E69C30038B95D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		54DA72E31DB6CAEE00AAC9EA /* iChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				379B26A71F108AF700C431B6 /* DataService.swift */,
+				379B26B51F13F01200C431B6 /* AuthService.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				379B26AA1F108D5300C431B6 /* ChatUser.swift in Sources */,
 				37CD0AEB1F0E69C30038B95D /* Extensions.swift in Sources */,
 				379B26B41F13C5FC00C431B6 /* StartViewController.swift in Sources */,
+				379B26B61F13F01200C431B6 /* AuthService.swift in Sources */,
 				379B26AC1F10964600C431B6 /* Constants.swift in Sources */,
 				54DA72FD1DB6CB2E00AAC9EA /* SignUpViewController.swift in Sources */,
 				37CD0AE91F0E66050038B95D /* AuthenticationManager.swift in Sources */,

@@ -30,27 +30,17 @@ class ChatViewController: JSQMessagesViewController {
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
         setupMessageBubbles()
-        getListOfFriendsUID()
         
         ref = Database.database().reference()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         messages.removeAll()
-        databaseHandle = ref.child("messages").observe(.childAdded, with: { (snapshot) -> Void in
-            if let value = snapshot.value as? [String:AnyObject] {
-                let id = value["senderId"] as! String
-                let text = value["text"] as! String
-                let name = value["senderDisplayName"] as! String
-                
-                // only include message send from our friends list and our own messages
-                if self.friendsUID.contains(id) || self.senderId == id {
-                    self.addMessage(id: id, text: text, name: name)
-                    self.finishReceivingMessage()
-                }
-            }
-        })
+        getUserOwnMessages()
+        getListOfFriendsMessages()
+    
     }
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         self.ref.removeObserver(withHandle: databaseHandle)
@@ -85,16 +75,33 @@ class ChatViewController: JSQMessagesViewController {
     
     // MARK: Added for Task in Exercise 4.8 
     
-    private func getListOfFriendsUID() {
+    private func getUserOwnMessages() {
+        databaseHandle = ref.child("messages").queryOrdered(byChild:"senderId").queryEqual(toValue: senderId).observe(.value, with: addToMessageFromSnapshot)
+    }
+    
+    private func getListOfFriendsMessages() {
         DataService.sharedInstance.usersRef.child(senderId).child(DataService.FIR_CHILD.FRIENDS)
             .observe(.childAdded, with: {[unowned self] (snapshot) in
         
                 if let chatUser = ChatUser.create(from: snapshot) {
-                    self.friendsUID.append(chatUser.uid)
+                    let friendUID = chatUser.uid
+                    self.databaseHandle = self.ref.child("messages").queryOrdered(byChild:"senderId").queryEqual(toValue: friendUID).observe(.value, with: self.addToMessageFromSnapshot)
                 }
             })
     }
     
+    private func addToMessageFromSnapshot(snapshot: DataSnapshot) {
+        print(snapshot)
+        if let value = (snapshot.value as? [String:AnyObject])?.values.first {
+            print(value)
+            let id = value["senderId"] as! String
+            let text = value["text"] as! String
+            let name = value["senderDisplayName"] as! String
+            
+            self.addMessage(id: id, text: text, name: name)
+            self.finishReceivingMessage()
+        }
+    }
     
 
     // MARK: Helper

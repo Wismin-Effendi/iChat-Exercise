@@ -21,25 +21,7 @@ class LoginViewController: UIViewController {
                 return
         }
         
-        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-            if let error = error {
-                switch error._code {
-                case AuthErrorCode.userNotFound.rawValue:
-                    self.showAlert(message: "User doesn't exist.")
-                case AuthErrorCode.wrongPassword.rawValue:
-                    self.showAlert(message: "Incorrect username or password.")
-                default:
-                    self.showAlert(message: "Error: \(error.localizedDescription)")
-                }
-                print(error.localizedDescription)
-                return
-            }
-            
-            if let user = user {
-                
-                AuthenticationManager.sharedInstance.didLogIn(user: user)
-                self.performSegue(withIdentifier: "ShowChatsFromLogin", sender: nil)
-            }
-        }
+        AuthService.sharedInstance.login(withEmail: email, password: password, sender: self)
+        
     }
 }
