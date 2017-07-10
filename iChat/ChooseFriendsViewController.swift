@@ -26,7 +26,7 @@ class ChooseFriendsViewController: UITableViewController {
         
         DataService.sharedInstance.usersRef
             .observe(.childAdded, with: {[unowned self] (snapshot) in
-                
+                print(snapshot)
                 if let chatUser = ChatUser.create(from: snapshot),
                     self.userId != chatUser.uid {
                         print(chatUser)

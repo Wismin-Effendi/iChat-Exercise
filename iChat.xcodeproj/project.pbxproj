@@ -13,6 +13,7 @@
 		379B26AA1F108D5300C431B6 /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B26A91F108D5300C431B6 /* ChatUser.swift */; };
 		379B26AC1F10964600C431B6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B26AB1F10964600C431B6 /* Constants.swift */; };
 		379B26AF1F1099DD00C431B6 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B26AE1F1099DD00C431B6 /* UserCell.swift */; };
+		379B26B41F13C5FC00C431B6 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379B26B31F13C5FC00C431B6 /* StartViewController.swift */; };
 		37CD0AE91F0E66050038B95D /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD0AE81F0E66050038B95D /* AuthenticationManager.swift */; };
 		37CD0AEB1F0E69C30038B95D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD0AEA1F0E69C30038B95D /* Extensions.swift */; };
 		54DA72E71DB6CAEE00AAC9EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DA72E61DB6CAEE00AAC9EA /* AppDelegate.swift */; };
@@ -33,6 +34,7 @@
 		379B26A91F108D5300C431B6 /* ChatUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
 		379B26AB1F10964600C431B6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		379B26AE1F1099DD00C431B6 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		379B26B31F13C5FC00C431B6 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		37CD0AE81F0E66050038B95D /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		37CD0AEA1F0E69C30038B95D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		54DA72E31DB6CAEE00AAC9EA /* iChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +78,18 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		379B26B21F13C5BF00C431B6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				54DA72F91DB6CB2E00AAC9EA /* LoginViewController.swift */,
+				54DA72FA1DB6CB2E00AAC9EA /* SignUpViewController.swift */,
+				379B26A41F1088EE00C431B6 /* ChooseFriendsViewController.swift */,
+				54DA72F81DB6CB2E00AAC9EA /* ChatViewController.swift */,
+				379B26B31F13C5FC00C431B6 /* StartViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		3870E434161367AD6147E38F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,13 +119,10 @@
 		54DA72E51DB6CAEE00AAC9EA /* iChat */ = {
 			isa = PBXGroup;
 			children = (
+				379B26B21F13C5BF00C431B6 /* Controller */,
 				379B26AD1F1099B500C431B6 /* View */,
 				379B26A61F10892000C431B6 /* Service */,
 				54DA72E61DB6CAEE00AAC9EA /* AppDelegate.swift */,
-				54DA72F81DB6CB2E00AAC9EA /* ChatViewController.swift */,
-				54DA72F91DB6CB2E00AAC9EA /* LoginViewController.swift */,
-				54DA72FA1DB6CB2E00AAC9EA /* SignUpViewController.swift */,
-				379B26A41F1088EE00C431B6 /* ChooseFriendsViewController.swift */,
 				379B26A91F108D5300C431B6 /* ChatUser.swift */,
 				37CD0AE81F0E66050038B95D /* AuthenticationManager.swift */,
 				54DA72EA1DB6CAEE00AAC9EA /* Main.storyboard */,
@@ -264,6 +275,7 @@
 				54DA72FB1DB6CB2E00AAC9EA /* ChatViewController.swift in Sources */,
 				379B26AA1F108D5300C431B6 /* ChatUser.swift in Sources */,
 				37CD0AEB1F0E69C30038B95D /* Extensions.swift in Sources */,
+				379B26B41F13C5FC00C431B6 /* StartViewController.swift in Sources */,
 				379B26AC1F10964600C431B6 /* Constants.swift in Sources */,
 				54DA72FD1DB6CB2E00AAC9EA /* SignUpViewController.swift in Sources */,
 				37CD0AE91F0E66050038B95D /* AuthenticationManager.swift in Sources */,

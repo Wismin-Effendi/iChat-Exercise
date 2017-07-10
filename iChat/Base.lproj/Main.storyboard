@@ -13,7 +13,7 @@
         <!--iChat-->
         <scene sceneID="jho-9F-UL8">
             <objects>
-                <viewController id="1I7-PC-oz7" sceneMemberID="viewController">
+                <viewController id="1I7-PC-oz7" customClass="StartViewController" customModule="iChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0bY-Pi-stZ"/>
                         <viewControllerLayoutGuide type="bottom" id="Bai-87-AkV"/>
@@ -66,6 +66,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="iChat" id="2k1-i1-HZo"/>
+                    <connections>
+                        <segue destination="Kjl-iR-dNf" kind="show" identifier="SkipLogin" id="j0O-2U-Bst"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Xw-5u-MnT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -339,6 +342,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5DS-fE-PkS"/>
+        <segue reference="j0O-2U-Bst"/>
     </inferredMetricsTieBreakers>
 </document>
